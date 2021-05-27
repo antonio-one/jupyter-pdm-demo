@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "jupyter-demo"
+version = "0.1.0"
+description = ""
+authors = ["antonio-one <antonio.one@pm.me>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+python-decouple = "^3.4"
+matplotlib = "^3.4.2"
+google-cloud-bigquery = {extras = ["pandas", "storage"], version = "^2.16.1"}
+ipywidgets = "^7.6.3"
+geopandas = "^0.9.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+jupyterlab = "^3.0.15"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
