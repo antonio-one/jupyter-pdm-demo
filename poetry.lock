@@ -831,6 +831,17 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "mplcursors"
+version = "0.4"
+description = "Interactive data selection cursors for Matplotlib."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+matplotlib = ">=3.1"
+
+[[package]]
 name = "munch"
 version = "2.5.0"
 description = "A dot-accessible dictionary (a la JavaScript objects)"
@@ -1577,7 +1588,7 @@ notebook = ">=4.4.1"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.10"
-content-hash = "910a8908d3c72e1683c5b979f8f1bdef98f67b6654ddc4dccb3dd4c429c9f3d1"
+content-hash = "fd030bc36dd624e3fcf7e8ef399e0a66ee6b6a3b41f45fb28622651f509b3a4c"
 
 [metadata.files]
 anyio = [
@@ -2093,6 +2104,9 @@ mistune = [
 more-itertools = [
     {file = "more-itertools-8.8.0.tar.gz", hash = "sha256:83f0308e05477c68f56ea3a888172c78ed5d5b3c282addb67508e7ba6c8f813a"},
     {file = "more_itertools-8.8.0-py3-none-any.whl", hash = "sha256:2cf89ec599962f2ddc4d568a05defc40e0a587fbc10d5989713638864c36be4d"},
+]
+mplcursors = [
+    {file = "mplcursors-0.4.tar.gz", hash = "sha256:a8646437e35acab37dc07ef0fca6bc8f66ffbae99d4d5a441ea254a94aed1d24"},
 ]
 munch = [
     {file = "munch-2.5.0-py2.py3-none-any.whl", hash = "sha256:6f44af89a2ce4ed04ff8de41f70b226b984db10a91dcc7b9ac2efc1c77022fdd"},
