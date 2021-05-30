@@ -12,13 +12,13 @@ gcloud auth application-default login
 ```
 
 ### Reading Materials
+- [Interacting with bigquery](https://github.com/googleapis/python-bigquery/blob/35627d145a41d57768f19d4392ef235928e00f72/samples/client_query_destination_table.py)
+- [pandas.merge](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge.html)
 - [matplotlib.pyplot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot%20plot#module-matplotlib.pyplot)
-- [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Using%20Interact.html#Basic-interact)
-- [BigQuery Tutorials](https://cloud.google.com/bigquery/docs/tutorials)
-- [Cosmic Python](https://www.cosmicpython.com/)
+- [Using Interact](https://ipywidgets.readthedocs.io/en/stable/examples/Using%20Interact.html#Basic-interact)
 - [geopandas.org](https://geopandas.org/docs/user_guide/mapping.html)
 - [Plot any data with a latitude and longitude on a map](https://towardsdatascience.com/geopandas-101-plot-any-data-with-a-latitude-and-longitude-on-a-map-98e01944b972)
-
+- [Cosmic Python](https://www.cosmicpython.com/)
 
 ### Credits
-uscities.csv appears courtesy of [simplemaps](https://simplemaps.com/data/us-cities.)
+`content/data/uscities.csv` appears courtesy of [simplemaps.com](https://simplemaps.com/data/us-cities.)
