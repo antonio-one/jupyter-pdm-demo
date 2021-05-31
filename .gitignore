@@ -3,3 +3,6 @@
 *.idea
 *.DS_Store
 *.ipynb_checkpoints
+.env
+*.fth
+jupyter_demo/content/data/uscities.csv
