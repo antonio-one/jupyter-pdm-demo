@@ -1,5 +1,7 @@
 ## jupyter-demo
 
+Jupyter demo for the 08/06/2021 [Pybites](https://pybit.es/) code-clinic.
+
 This demo relies on public google bigquery data.
 
 ```
