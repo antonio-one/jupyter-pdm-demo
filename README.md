@@ -6,6 +6,7 @@ This demo relies on public google bigquery data.
 
 ```bash
 export PROJECT_ID=your_gcp_project_id
+export DATA_DIR=path/to/project/jupyter-demo/jupyter_demo/content/data
 ```
 
 Install the dependencies.
