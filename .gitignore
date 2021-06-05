@@ -7,3 +7,4 @@
 *.fth
 jupyter_demo/content/data/uscities.csv
 .old
+*.feather
