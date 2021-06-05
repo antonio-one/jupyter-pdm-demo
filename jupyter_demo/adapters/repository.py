@@ -1,53 +1,50 @@
+from abc import abstractmethod
 from contextlib import suppress
 from os import unlink
 from pathlib import Path
 from typing import Union
 
-import pandas as pd
 from google.cloud import bigquery
 from google.cloud.bigquery.table import RowIterator, _EmptyRowIterator
+from pandas import DataFrame, read_feather
 
 
-class DataFrameRepository:
-    def __init__(self, repository_path: Path):
-        self.repository_path = repository_path
+class AbstractRepository:
+    @abstractmethod
+    def get(self, *args):
+        raise NotImplementedError
 
-    def add(self, data_frame: pd.DataFrame, filename: str) -> Path:
-        return data_frame.to_feather(self.filepath(filename))
 
-    def get(self, filename: str) -> pd.DataFrame:
-        return pd.read_feather(self.filepath(filename))
+class DataFrameRepository(AbstractRepository):
+    def __init__(self, path: Path):
+        self.path = path
 
-    def remove(self, filename: str) -> bool:
+    def add(self, data_frame: DataFrame, filename: str) -> Path:
+        DataFrame.to_feather(
+            data_frame, path=self._filepath(filename), compression="zstd"
+        )
+        return self._filepath(filename)
+
+    def get(self, filename: str) -> DataFrame:
+        return read_feather(self._filepath(filename))
+
+    def remove(self, filename: str) -> None:
         with suppress(FileNotFoundError):
-            unlink(self.filepath(filename))
+            unlink(self._filepath(filename))
 
-    def filepath(self, filename: str) -> Path:
-        return self.repository_path / filename
+    def _filepath(self, filename: str) -> Union[Path, str]:
+        return self.path / filename
 
 
-class BigQueryRepository:
+class BigQueryRepository(AbstractRepository):
     def __init__(self, client: bigquery.Client):
         self.client = client
 
-    def get_rows(self, sql_command: str) -> Union[RowIterator, _EmptyRowIterator]:
-        query_job = self.client.query(sql_command)
-        return query_job.result()
-
-    def get_df(self, sql_command: str) -> pd.DataFrame:
+    def get(self, sql_command: str) -> DataFrame:
         query_job = self.client.query(sql_command)
         result = query_job.result()
         return result.to_dataframe(progress_bar_type="tqdm_notebook")
 
-
-class PostgreRepository:
-    def __init__(self):
-        pass
-
-    # noinspection PyMethodMayBeStatic
-    def get_rows(self):
-        return NotImplemented
-
-    # noinspection PyMethodMayBeStatic
-    def get_df(self):
-        return NotImplemented
+    def get_rows(self, sql_command: str) -> Union[RowIterator, _EmptyRowIterator]:
+        query_job = self.client.query(sql_command)
+        return query_job.result()
