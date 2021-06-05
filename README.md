@@ -8,7 +8,7 @@ This demo relies on public google bigquery data.
 export PROJECT_ID=your_gcp_project_id
 ```
 
-Install the dependencies
+Install the dependencies.
 ```bash
 poetry env use python3.9
 poetry install
