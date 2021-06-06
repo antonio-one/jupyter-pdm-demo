@@ -31,4 +31,4 @@ gcloud auth application-default login
 - [Cosmic Python](https://www.cosmicpython.com/)
 
 ### Credits and Data
-- `content/data/uscities.csv` appears courtesy of [simplemaps.com](https://simplemaps.com/data/us-cities.)
+- `content/data/uscities.csv` appears courtesy of [simplemaps.com](https://simplemaps.com/data/us-cities)
